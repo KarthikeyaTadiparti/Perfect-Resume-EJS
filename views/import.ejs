@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSV to JSON Converter</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            input[type="file"] {
+                margin: 20px 0;
+                padding: 10px;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+            li {
+                padding: 5px 0;
+                border-bottom: 1px solid #ddd;
+                cursor: pointer;
+            }
+            pre {
+                text-align: left;
+                white-space: pre-wrap;
+                background: #f9f9f9;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>CSV to JSON Converter</h1>
+            <input type="file" id="csvFolderInput" webkitdirectory directory />
+            <ul id="fileList">
+                <li>No files uploaded yet.</li>
+            </ul>
+            <div id="fileContent">
+                <h2>Converted JSON:</h2>
+                <pre id="jsonData">
+                    Select a file from the list to convert and view its content.
+                </pre>
+            </div>
+            <button onclick="sendModifiedDataToServer()">Submit</button>
+        </div>
+
+        <script src="/import.js"></script>
+    </body>
+</html>

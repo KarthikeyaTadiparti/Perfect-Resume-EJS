@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edit Resume</title>
+        <style>
+            .entry-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .form-container {
+                flex: 1;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+
+            .preview-box {
+                width: 700px;
+                border: 1px solid #ddd;
+                padding: 10px;
+                background-color: #f9f9f9;
+                border-radius: 10px;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                max-height: 300px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 8px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+            h3,
+            p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Edit Resume</h1>
+
+        <!-- Form for editing the data -->
+        <form action="/save-edits" method="POST">
+            <% if (data && Array.isArray(data)) { %> <% data.forEach((item,
+            index) => { %>
+            <div class="entry-container">
+                <div class="form-container">
+                    <h2>Entry <%= index + 1 %></h2>
+
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name_<%= index %>">Name:</label>
+                        <input
+                            type="text"
+                            id="name_<%= index %>"
+                            name="name_<%= index %>"
+                            value="<%= item.name || '' %>"
+                            oninput="updatePreview(<%= index %>)"
+                        />
+                    </div>
+
+                    <!-- Authority Field -->
+                    <div>
+                        <label for="authority_<%= index %>">Authority:</label>
+                        <input
+                            type="text"
+                            id="authority_<%= index %>"
+                            name="authority_<%= index %>"
+                            value="<%= item.authority || '' %>"
+                            oninput="updatePreview(<%= index %>)"
+                        />
+                    </div>
+
+                    <!-- Started On Field -->
+                    <div>
+                        <label for="startedOn_<%= index %>">Started On:</label>
+                        <input
+                            type="text"
+                            id="startedOn_<%= index %>"
+                            name="startedOn_<%= index %>"
+                            value="<%= item.startedOn || '' %>"
+                            oninput="updatePreview(<%= index %>)"
+                        />
+                    </div>
+                </div>
+
+                <!-- Preview Box -->
+                <div class="preview-box" id="preview_<%= index %>">
+                    <h3>Preview:</h3>
+                    <p>Name: <%= item.name || 'No name' %></p>
+                    <p>Authority: <%= item.authority || 'No authority' %></p>
+                    <p>Started On: <%= item.startedOn || 'No start date' %></p>
+                </div>
+            </div>
+            <hr />
+            <% }); %> <% } %>
+
+            <button type="submit">Save Changes</button>
+        </form>
+
+        <script>
+            // Function to update the preview box in real time
+            function updatePreview(index) {
+                const name = document.getElementById(`name_${index}`).value;
+                const authority = document.getElementById(
+                    `authority_${index}`
+                ).value;
+                const startedOn = document.getElementById(
+                    `startedOn_${index}`
+                ).value;
+
+                const previewBox = document.getElementById(`preview_${index}`);
+                previewBox.innerHTML = `
+                <h3>Preview:</h3>
+                <p>Name: ${name || "No name"}</p>
+                <p>Authority: ${authority || "No authority"}</p>
+                <p>Started On: ${startedOn || "No start date"}</p>
+            `;
+            }
+        </script>
+    </body>
+</html>
