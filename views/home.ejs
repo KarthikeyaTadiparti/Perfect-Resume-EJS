@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/tailwind.css">
-</head>
-<body>
-    <form action="/home/resume" method="GET">
-        <button class="bg-blue-400 text-white p-4">Generate Resume</button>
-    </form>
+<%layout("/layouts/boilerplate")%>
+<body class="bg-background">
+    <div class="w-4/5 mx-auto flex">
+        <div class="w-3/5">
+            <h1 class="text-4xl font-black tracking-wider leading-relaxed mt-40">
+                Land the Job with Resumes<br />
+                That work for You.
+            </h1>
+            <p class="text-lg mt-5 tracking-wide leading-relaxed font-medium">
+                Your resume is the key to your career. With “Perfect Resume”,<br> 
+                you can create stunning, industry-specific resumes in just a few steps. <br>
+                Don't just apply - impress!
+            </p>
+            <form action="/home/resume" method="GET">
+                <button class="bg-pri-blue text-white px-6 py-4 mt-5 rounded-md">Create Resume</button>
+            </form>
+        </div>
+        <div>
+            <img src="Images\profile-data-concept-illustration\resume-illustration.svg" 
+            alt="resume-illustration"
+            class="h-4/5 float-right mt-10">
+        </div>
+    </div>
+    
 </body>
-</html>
