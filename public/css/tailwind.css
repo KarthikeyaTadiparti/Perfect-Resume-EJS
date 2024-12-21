@@ -617,16 +617,16 @@ video {
   display: flex;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .h-4\/5 {
   height: 80%;
 }
 
-.h-20 {
-  height: 5rem;
-}
-
-.h-16 {
-  height: 4rem;
+.h-3\/5 {
+  height: 60%;
 }
 
 .w-3\/5 {
@@ -704,6 +704,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .font-black {
