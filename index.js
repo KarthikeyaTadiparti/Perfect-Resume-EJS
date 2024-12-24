@@ -15,6 +15,17 @@ app.get("/home",(req,res)=>{
     res.render("home.ejs");
 });
 
+//login route
+app.get("/login",(req,res)=>{
+    res.render("login.ejs");
+});
+
+//signup route
+app.get("/signup",(req,res)=>{
+    res.render("signup.ejs");
+});
+
+
 //resume route
 app.get("/home/resume",(req,res)=>{
     res.render("resume.ejs");
