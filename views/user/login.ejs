@@ -1,0 +1,63 @@
+<%layout("/layouts/boilerplate")%>
+
+<div class="w-screen h-full flex justify-center items-center mt-36">
+    <form
+        method="post"
+        action="/user/login"
+        class="w-1/4 border border-gray-200 mx-auto px-6 py-8 rounded-lg shadow-md bg-white"
+    >
+        <h1 class="font-bold text-3xl text-center mb-6">Log In</h1>
+        <div class="mb-5">
+            <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Email</label
+            >
+            <input
+                type="email"
+                name="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-200 outline-none block w-full p-2.5"
+                required
+            />
+        </div>
+        <div class="mb-5">
+            <label
+                for="password"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Password</label
+            >
+            <input
+                type="password"
+                name="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-200 outline-none block w-full p-2.5"
+                required
+            />
+        </div>
+        <div>
+            <a
+                href="#"
+                class="text-pri-blue hover:underline hover:decoration-pri-blue"
+                >Forgot password?</a
+            >
+        </div>
+
+        <button
+            type="submit"
+            class="text-white mt-4 mb-6 bg-pri-blue hover:bg-dark-pri-blue focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm w-full py-3 text-center"
+        >
+            Log In
+        </button>
+        <hr />
+        <div>
+            <p class="mt-4 text-center">
+                Don't have an account?
+                <a
+                    href="/user/signup"
+                    class="text-pri-blue hover:underline hover:decoration-pri-blue"
+                >
+                    Sign up</a
+                >
+            </p>
+        </div>
+    </form>
+</div>
