@@ -37,11 +37,36 @@ const sessionOptions = {
     cookie: {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpONly: true,
+        httpOnly: true,
     },
 };
 app.use(session(sessionOptions));
 app.use(flash());
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+// passport.use(
+//     new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
+//       try {
+//         const user = await User.findOne({ email });
+//         if (!user) {
+//           return done(null, false, { message: 'No user found with this email.' });
+//         }
+  
+//         user.authenticate(password, (err, user, info) => {
+//           if (err) return done(err);
+//           if (!user) return done(null, false, { message: info.message }); // Use info.message from passport-local-mongoose
+//           return done(null, user);
+//         });
+//       } catch (err) {
+//         return done(err);
+//       }
+//     })
+//   );
+passport.use(new LocalStrategy({usernameField : "email"},User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //local variables middleware
 app.use((req, res, next) => {
@@ -50,20 +75,6 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 });
-
-//passport
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(
-    new LocalStrategy(
-        {
-            usernameField: "email",
-        },
-        User.authenticate()
-    )
-);
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 //routes
 const userRoute = require("./routes/userRoute");

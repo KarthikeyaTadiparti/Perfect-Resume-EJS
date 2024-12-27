@@ -29,6 +29,7 @@ router.post(
     }),
     (req, res) => {
         res.locals.currUser = req.user;
+        console.log(req.user);
         const id = res.locals.currUser._id;
         req.flash("success", "You are logged in!");
         res.redirect(`/user/${id}/resume`);
