@@ -11,11 +11,12 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const User = require("./models/user");
 
 app.set("view engine", "ejs");
+app.engine("ejs", ejsMate);
 app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.engine("ejs", ejsMate);
+
 
 //mongoose set
 async function main() {
