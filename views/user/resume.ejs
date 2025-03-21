@@ -16,7 +16,8 @@
 
     <h3 class="text-md font-semibold my-4 text-gray-500">My Resumes</h3>
     <div class="flex gap-4">
-        <% user.documents.forEach((document) => { %>
+        <%if(user.documents && user.documents.length){%>
+        <%user.documents.forEach((document) => { %>
         <div
             class="w-52 h-72 bg-white border border-gray-200 rounded-lg shadow"
         >
@@ -43,14 +44,16 @@
                 </p>
             </div>
         </div>
-        <%})%>
+        <%})%> <%}%>
 
-        <div
-            class="w-52 h-72 flex justify-center items-center bg-white border border-gray-200 rounded-lg shadow"
-        >
-            <i
-                class="text-[60px] hover:text-pri-blue p-6 text-gray-200 fa-solid fa-plus"
-            ></i>
-        </div>
+        <a href="/user/new">
+            <div
+                class="w-52 h-72 flex justify-center items-center bg-white border border-gray-200 rounded-lg shadow"
+            >
+                <i
+                    class="text-[60px] hover:text-pri-blue p-6 text-gray-200 fa-solid fa-plus"
+                ></i>
+            </div>
+        </a>
     </div>
 </div>

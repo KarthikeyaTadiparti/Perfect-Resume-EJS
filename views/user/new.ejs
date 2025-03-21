@@ -1,0 +1,38 @@
+<%layout("/layouts/boilerplate")%>
+<div class="w-4/5 h-full mx-auto flex gap-10">
+    <div class="w-1/2">
+        <!--personal information-->
+        <%-include("../includes/inputFields/personal")%>
+      
+        <!--education-->
+        <%-include("../includes/inputFields/education")%>
+
+        
+    </div>
+
+    <!--preview-->
+    <div class="w-1/2">
+        <div
+            class="my-5 bg-white border border-slate-300 shadow-md"
+            style="height: calc(1.414 * 620px); width: calc(1 * 620px)"
+        >
+            <div id="previewBox"></div>
+        </div>
+        <div class="mt-4 flex justify-end">
+            <button
+                type="button"
+                class="focus:outline-none text-white bg-emerald-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2"
+            >
+                Save
+            </button>
+            <button
+                type="button"
+                id="downloadBtn"
+                onclick="download()"
+                class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5"
+            >
+                Download PDF
+            </button>
+        </div>
+    </div>
+</div>
