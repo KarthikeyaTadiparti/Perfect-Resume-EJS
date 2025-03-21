@@ -57,7 +57,14 @@ router.get("/resume", isLoggedIn, async (req, res) => {
     // console.log(user);
     let populatedUser = await user.populate("documents");
     // console.log(populatedUser);
+    // console.log(populatedUser.documents);
+    // console.log(populatedUser.documents.length);
     res.render("user/resume.ejs", { user: populatedUser });
 });
 
+
+//new resume 
+router.get("/new",(req,res)=>{
+    res.render("user/new.ejs");
+});
 module.exports = router;

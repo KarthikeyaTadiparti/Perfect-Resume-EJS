@@ -1,0 +1,21 @@
+#previewBox{
+    font-family: 'Times New Roman', Times, serif;
+}
+.personal{
+    padding : 15px;
+    display: flex;
+    flex-direction: column;
+}
+.fullname{
+    margin : auto;
+    font-size: larger;
+    font-weight: 400;
+}
+.personal-details{
+    display: flex;
+    margin: auto;
+}
+.objective-heading{
+    font-size: large;
+    font-weight: 400;
+}
